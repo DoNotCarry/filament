@@ -165,3 +165,22 @@ To disable this behavior, you may override the `$isLazy` property on the widget 
 ```php
 protected static bool $isLazy = false;
 ```
+
+## Changing columns layout
+
+By default, a maximum of 4 stats will apper per row. If you have more than 4 stats, the rows will contain 3 stats each.
+
+You can override this using the `getColumns()` method. Different screen sizes can also be handled using this method.
+
+```php
+protected function getColumns(): int | array
+{
+    return [
+        'sm' => 1,
+        'md' => 2,
+        'lg' => 2,
+        'xl' => 3,
+        '2xl' => 3,
+    ];
+}
+```

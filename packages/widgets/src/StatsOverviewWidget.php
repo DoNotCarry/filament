@@ -20,19 +20,19 @@ class StatsOverviewWidget extends Widget
      */
     protected static string $view = 'filament-widgets::stats-overview-widget';
 
-    protected function getColumns(): int
+    protected function getColumns(): int | array
     {
         $count = count($this->getCachedStats());
 
         if ($count < 3) {
-            return 3;
+            return ['default' => 3];
         }
 
         if (($count % 3) !== 1) {
-            return 3;
+            return ['default' => 3];
         }
 
-        return 4;
+        return ['default' => 4];
     }
 
     /**
